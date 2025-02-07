@@ -61,11 +61,11 @@ This file implements **real-time obstacle detection** using a **TFmini Plus LiDA
 ## Installation & Setup
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/your-username/robotics-control-system.git
-cd robotics-control-system
+git clone https://ggithub.com/noahbean33/RoboRacer.git
+cd RoboRacer
 ```
 ### 2. Compile and Flash Code
-Ensure you have the **STM32 HAL Library** and necessary dependencies installed. Use your **STM32 development environment** (e.g., STM32CubeIDE or Arduino IDE with STM32 support) to compile and upload the code.
+Ensure you have the STM32CubeIDE or Arduino IDE to compile and upload the code.
 
 ### 3. Connect Peripherals
 - **IR Sensors** to digital input pins.
@@ -96,10 +96,10 @@ CMD_GET_OBSTACLE_DATA = 0x05  // Get LiDAR obstacle data
 ---
 
 ## License
-This project is licensed under the **MIT License**.
+This project is licensed under the ** Apache-2.0 license**.
 
 ---
 
 ## Authors
-Developed by **Your Name**. For questions or contributions, open an issue or pull request on GitHub.
+Developed by **ECE Team**. For questions or contributions, open an issue or pull request on GitHub.
 
