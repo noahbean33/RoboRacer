@@ -15,37 +15,21 @@ This repository contains embedded C code for an **autonomous vehicle** using the
 
 ## File Descriptions
 
-### 1. `low_level_api.c`
-This file implements the **low-level embedded API** for controlling motors, processing sensor data, and handling communication protocols. Key functionalities include:
+Line-Following Sensor Module
 
-- **Real-Time Sensor Updates** via timer interrupts for IR and LiDAR sensors.
-- **UART Communication** with a **packet-based command protocol** and checksum validation.
-- **PID-Based Line Following** using five IR sensors and a weighted moving average filter.
-- **PWM Motor Control** for setting speed and adjusting heading.
-- **Emergency Stop Logic** triggered by obstacle detection or communication loss.
-- **Watchdog Timer Implementation** to ensure robust system operation.
+Obstacle-Avoidance Module 
 
-### 2. `line_following_array.c`
-This file manages **line following** using a **seven-IR-sensor array**. The key components are:
+Killswitch module 
 
-- **Sensor Layout:** Five sensors arranged in a row to track the line.
-- **Circular Buffer for Filtering:** Stores the last five readings for each sensor.
-- **Majority-Vote Filtering:** Reduces noise using a software-based median filter.
-- **Line Detection Logic:**
-  - **Centered on Line** → Robot maintains position.
-  - **Line on Left Side** → Robot steers **left**.
-  - **Line on Right Side** → Robot steers **right**.
-- **Serial Output for Debugging** displaying both raw and filtered sensor values.
+Bluetooth module
 
-### 3. `obstacle_detection_array.c`
-This file implements **real-time obstacle detection** using a **TFmini Plus LiDAR** sensor. Features include:
+PID Control System Module
 
-- **Serial Communication with LiDAR** using `SoftwareSerial`.
-- **9-Byte Data Frame Processing** to extract LiDAR distance measurements.
-- **Circular Buffer for Filtering** with **median filtering** for stability.
-- **Obstacle Detection Logic:**
-  - If an obstacle is detected **within 800 cm (8 meters)**, an **emergency stop is triggered**.
-  - Prints both **raw** and **filtered** LiDAR distances for debugging.
+I2C Master and Slave Module
+
+Low-Level API Module
+
+User Interface Module
 
 ---
 
