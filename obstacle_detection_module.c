@@ -1,10 +1,3 @@
-/************************************************
- * Obstacle Detection with TFmini Plus LiDAR
- * Using a Median Filter
- ************************************************/
-
-// ========== LiDAR Setup ==========
-
 // Define the serial communication pins for TFmini Plus
 #define TFMINI_RX_PIN 2  // Connect TFmini TX to Arduino Digital Pin 2 (RX)
 #define TFMINI_TX_PIN 3  // Connect TFmini RX to Arduino Digital Pin 3 (TX)
@@ -21,9 +14,7 @@ uint8_t buffer[9];
 // Raw distance from TFmini (in cm)
 int lidarDistance = 0;
 
-// ========== Median Filter Setup ==========
-
-// Number of samples to hold in our median buffer
+// Number of samples to hold in median buffer
 #define MEDIAN_FILTER_SIZE 5
 
 // Circular buffer to store recent distance samples
@@ -31,7 +22,6 @@ int distanceBuffer[MEDIAN_FILTER_SIZE] = {0};
 int bufferIndex = 0;
 
 // Tracks how many samples collected so far
-// Do not have a full window until collect at least MEDIAN_FILTER_SIZE
 int samplesCollected = 0;
 
 // ========== Setup ==========
@@ -52,8 +42,6 @@ void setup() {
   tfminiSerial.write(enableDataOutput, sizeof(enableDataOutput));
 }
 
-// ========== Main Loop ==========
-
 void loop() {
   // Read TFmini data if available
   readTFmini();
@@ -70,11 +58,8 @@ void loop() {
 
   // Check if obstacle is within 8 meters (800 cm), using the median value
   checkObstacle(medianDistance);
-
-  delay(500); // Adjust the delay as needed
 }
 
-// ========== Helper Functions ==========
 
 // Reads a 9-byte frame from TFmini and updates lidarDistance & median buffer
 void readTFmini() {
