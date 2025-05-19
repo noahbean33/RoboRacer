@@ -1,9 +1,9 @@
 # Robotics Control System
 
-This repository contains embedded C code for a **robotics control system** using the **Arduino Portenta H7 (STM32H747XI)** microcontroller. The system handles **real-time motor control, line-following, and obstacle detection** using multiple sensors and communication protocols.
+This repository contains embedded C code for an **autonomous vehicle** using the **Arduino Portenta H7 (STM32H747XI)** microcontroller. The system handles **real-time motor control, line-following, and obstacle detection** using multiple sensors and communication protocols.
 
 ## Features
-- **Low-Level API for Embedded Control**
+- **Low-Level API for Real-Time Embedded Control**
 - **Real-Time Sensor Data Processing**
 - **PID-Based Line Following Algorithm**
 - **PWM Motor Control**
@@ -26,7 +26,7 @@ This file implements the **low-level embedded API** for controlling motors, proc
 - **Watchdog Timer Implementation** to ensure robust system operation.
 
 ### 2. `line_following_array.c`
-This file manages **line following** using a **five-IR-sensor array**. The key components are:
+This file manages **line following** using a **seven-IR-sensor array**. The key components are:
 
 - **Sensor Layout:** Five sensors arranged in a row to track the line.
 - **Circular Buffer for Filtering:** Stores the last five readings for each sensor.
@@ -58,48 +58,11 @@ This file implements **real-time obstacle detection** using a **TFmini Plus LiDA
 
 ---
 
-## Installation & Setup
-### 1. Clone the Repository
-```sh
-git clone https://ggithub.com/noahbean33/RoboRacer.git
-cd RoboRacer
-```
-### 2. Compile and Flash Code
-Ensure you have the STM32CubeIDE or Arduino IDE to compile and upload the code.
-
-### 3. Connect Peripherals
-- **IR Sensors** to digital input pins.
-- **TFmini Plus LiDAR** to serial communication pins.
-- **Motor Driver** to PWM output pins.
-
----
-
-## Usage
-### 1. Line Following Mode
-- The robot follows a **black line on a white background**.
-- Adjusts steering dynamically based on **IR sensor feedback**.
-
-### 2. Obstacle Detection Mode
-- LiDAR continuously scans for obstacles **within 800 cm**.
-- Triggers **emergency stop** if an obstacle is detected.
-
-### 3. UART Commands (For Debugging)
-Send the following UART commands to test functionality:
-```c
-CMD_SET_SPEED         = 0x01  // Set motor speed
-CMD_ADJUST_HEADING    = 0x02  // Adjust steering angle
-CMD_STOP              = 0x03  // Stop motors
-CMD_GET_IR_DATA       = 0x04  // Get IR sensor data
-CMD_GET_OBSTACLE_DATA = 0x05  // Get LiDAR obstacle data
-```
-
----
-
 ## License
 This project is licensed under the ** Apache-2.0 license**.
 
 ---
 
 ## Authors
-Developed by **ECE Team**. For questions or contributions, open an issue or pull request on GitHub.
+Developed by **ECE Team**.
 
