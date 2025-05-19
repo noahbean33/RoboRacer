@@ -1,6 +1,6 @@
 #include <Wire.h>
 
-#define SLAVE_ADDRESS 8 // I2C address for Arduino 2
+#define SLAVE_ADDRESS 8 // I2C address for device 2
 int pwmValue = 0; // Current PWM value
 
 void setup() {
